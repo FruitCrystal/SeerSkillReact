@@ -14,6 +14,7 @@ function SearchByType() {
     const [url, setUrl] = useState("");
     const [page, setPage] = useState(1);
     const [offset, setOffset] = useState(0);//分页查询,sql8.0以上支持,语法: select * from table limit `每页数量` offset `查询偏移量`,如果偏移量是400,就从第400挑数据开始找
+    let a;
     const [sum,setSum] = useState(0);
     //AI makes this useEffect,
     console.log("leng=" + skillList.length);
