@@ -46,6 +46,20 @@ function Detail(props) {
                             <td>{information.id}</td>
                         </tr>
                         <tr>
+                            <th>技能类别</th>
+                            <td
+                                style={
+                                    information.category == "物理攻击"
+                                        ? { color: "red" }
+                                        : information.category == "特殊攻击"
+                                        ? { color: "rgb(255,153,255)" }
+                                        : { color: "rgb(0,255,0)" }
+                                }
+                            >
+                                {information.category}
+                            </td>
+                        </tr>
+                        <tr>
                             <th>技能精准度</th>
                             <td>{information.accuracy}</td>
                         </tr>
