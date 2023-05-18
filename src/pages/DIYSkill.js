@@ -14,11 +14,14 @@ function DIYSkill() {
     const [show, setShow] = useState(false);
     const form = useRef(null);
     // const [iterator,SetIterator] = useState(0);
-    const [category, setCategory] = useState("");
+    const [newName, setNewName]= useState("");
     const onFinish = (values) => {
-        // SetIterator(iterator+1)
-
+        setNewName(values.skillName);
         values.skillType = type;
+        if(!type){
+            alert("属性为必填项!")
+            return 0;
+        }
         console.log(
             "After dealing..",
             values.effect.map((item, index) => (!item ? delete values.effect[index] : null))
@@ -217,7 +220,7 @@ function DIYSkill() {
                     <Button htmlType="submit">Submit</Button>
                 </Form.Item>
             </Form>
-            <SkillLib key={type}></SkillLib>
+            <SkillLib newSkillName={newName}></SkillLib>
         </div>
     );
 }

@@ -10,8 +10,9 @@ function SkillPanel (props) {
     <div className="" >
       {/* //自定义技能才有的Tag */}
       {props.id>49999?<button style={{position:"absolute",zIndex:1000}} className="diy-tag" onClick={()=>{
+        props.passValue(props.id)
         fetch(`http://localhost:8080/deleteSkill?id=${props.id}`);
-        setID(props.id-1);
+        setID(props.id);
       }}>删除</button>:null}
       <div
         onClick={e => {

@@ -29,7 +29,7 @@
     background-color: #01284d;
     width: 225px;
     height: 100px;
-    z-index: -1;
+    z-index: -100000;
     filter: blur(20px);
     /* box-shadow:0px 0px 12px#32383a; */
 }
@@ -94,4 +94,5 @@
     bottom: -79px;
     right: 12px;
     color: #000;
+    z-index: -10000;
 }

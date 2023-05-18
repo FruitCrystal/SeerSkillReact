@@ -28,6 +28,7 @@ function SearchByType() {
         fetch(url)
             .then((res) => res.json())
             .then((resp) => {
+                console.log(resp)
                 setList(resp);
                 setLoading(true);
             });
