@@ -1,0 +1,41 @@
+.Sidebar {
+    background-color: #333;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+    top: 0;
+    min-width: 120px;
+}
+
+.Sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Sidebar li {
+    border-bottom: 1px solid #444;
+}
+
+.Sidebar li:last-child {
+    border-bottom: none;
+}
+
+.Sidebar a {
+    color: #fff;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.active {
+    transition: ease-out 1s;
+    background-color: rgb(121, 114, 114);
+}
+
+.active::after {
+    position: relative;
+    background-color: silver;
+    top: -55px;
+}

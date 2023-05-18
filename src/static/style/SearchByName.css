@@ -1,0 +1,17 @@
+.result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.rv-pagination {
+    position: absolute;
+    bottom: 200px;
+}
+.rv-empty {
+    display: flex;
+    justify-content: space-around;
+    width: calc(100vw - 120px);
+}
+.padding {
+    width: calc(100vw - 120px);
+}

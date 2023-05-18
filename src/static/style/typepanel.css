@@ -1,0 +1,15 @@
+.type-switch > li > a > img {
+    cursor: pointer;
+}
+.type-switch > li > a {
+    height: 100%;
+}
+
+.type-panel {
+    width: 1050px;
+    height: 800px;
+    background-color: rgba(255, 255, 255, 0.76);
+    /* background: linear-gradient(to bottom, #1c1c1c, #383838); */
+    border-radius: 8%;
+    padding: 28px;
+}
