@@ -7,7 +7,7 @@ function SkillLib(props) {
     const [skillList, setSkillList] = useState([]);
     const [loading, setLoading] = useState(false);
     // const [deletedID, setDeletedID] = useState([0]);
-    const [newSkillName,setNewSkillName] = useState(props.newSkillName);
+    // const [newSkillName,setNewSkillName] = useState(props.newSkillName);
     const passValue = (value) => {
         console.log(value);
         console.log("invoked")
@@ -24,7 +24,7 @@ function SkillLib(props) {
             setLoading(true);
             console.log(loading);
         });
-    }, [loading,props.newSkillName]);
+    }, [loading,props.newSkillName]);//通过监听pros的newSkillName来控制获取新数据
     return (
         <div className="DiySkillLib" style={{ marginLeft: "25px",minWidth:"100px",maxWidth:"1000px" }}>
             <h1>自定义技能库</h1>

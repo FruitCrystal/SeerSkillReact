@@ -16,7 +16,7 @@ function DIYSkill() {
     // const [iterator,SetIterator] = useState(0);
     const [newName, setNewName]= useState([]);
     const onFinish = (values) => {
-        setNewName((prev)=> [...prev,values.skillName]);
+        setNewName((prev)=> [...prev,values.skillName]);//skillName是一个数组,每新增一个技能他都会添加一个元素
         values.skillType = type;
         if(!type){
             alert("属性为必填项!")

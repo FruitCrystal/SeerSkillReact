@@ -52,7 +52,7 @@ function SearchByType() {
     // console.log("sum="+sum)
     return (
         <div>
-            {nowtype != "" ? (
+            {nowtype !== "" ? (
                 <Button
                     type="primary"
                     onClick={() => {
@@ -67,7 +67,7 @@ function SearchByType() {
             ) : null}
             <div className="search-by-type">
                 {nowtype == "" ? <TypePanel passValue={callback} order={order} allowJump={true}></TypePanel> : ""}
-                {loading && nowtype != "" ? (
+                {loading && nowtype !== "" ? (
                     <div className="result-panel">
                         {skillList.map((item) => (
                             <SkillPanel
@@ -87,7 +87,7 @@ function SearchByType() {
                         ))}
                     </div>
                 ) : <div style={{width:"calc(100vw - 120px)"}}/>}
-                {nowtype == "" ? null : (
+                {nowtype === "" ? null : (
                     <Pagination className="page"
                         value={page}
                         onChange={(e) => {
