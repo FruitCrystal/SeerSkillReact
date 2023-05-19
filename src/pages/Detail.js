@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import SkillPanel from '../components/SkillPanel';
 import "../static/style/detail.css";
 import { Skeleton } from "react-vant";
@@ -17,9 +17,8 @@ function Detail(props) {
                 setLoading(false);
             });
     }, []);
-    console.log(props.information);
     return (
-        <div className="detail-page">
+        <div className="detail-page" >
             {loading ? (
                 <Skeleton />
             ) : (

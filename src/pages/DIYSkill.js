@@ -14,9 +14,9 @@ function DIYSkill() {
     const [show, setShow] = useState(false);
     const form = useRef(null);
     // const [iterator,SetIterator] = useState(0);
-    const [newName, setNewName]= useState("");
+    const [newName, setNewName]= useState([]);
     const onFinish = (values) => {
-        setNewName(values.skillName);
+        setNewName((prev)=> [...prev,values.skillName]);
         values.skillType = type;
         if(!type){
             alert("属性为必填项!")
@@ -217,7 +217,9 @@ function DIYSkill() {
                     </Form.List>
                 </Form.Item>
                 <Form.Item>
-                    <Button htmlType="submit">Submit</Button>
+                    <Button htmlType="submit" onClick={()=>{
+                        
+                    }}>Submit</Button>
                 </Form.Item>
             </Form>
             <SkillLib newSkillName={newName}></SkillLib>

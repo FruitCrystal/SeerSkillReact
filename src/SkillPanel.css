@@ -63,13 +63,6 @@
     z-index: 100000000;
 }
 
-.diy-tag::after {
-    content: "DIY";
-    position: absolute;
-    bottom: -79px;
-    right: 12px;
-    color: #000;
-}
 .diy-tag {
     background: linear-gradient(to bottom, #4d4d4d, #1a1a1a);
     border: none;

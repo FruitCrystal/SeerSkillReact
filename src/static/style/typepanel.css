@@ -13,3 +13,7 @@
     border-radius: 8%;
     padding: 28px;
 }
+
+.rv-overlay {
+    z-index: 1000;
+}

@@ -6,10 +6,16 @@ function SkillPanel (props) {
   const [visible, setVisible] = useState (false);
   const [id, setID] = useState (0);
   console.log (props.id);
+  window.addEventListener('keydown',(e)=>{
+        
+        if(e.code==="Escape"){
+            setVisible(false)
+        }
+    })
   return (
     <div className="" >
       {/* //自定义技能才有的Tag */}
-      {props.id>49999?<button style={{position:"absolute",zIndex:1000}} className="diy-tag" onClick={()=>{
+      {props.id>49999?<button style={{position:"absolute",zIndex:1}} className="diy-tag" onClick={()=>{
         props.passValue(props.id)
         fetch(`http://localhost:8080/deleteSkill?id=${props.id}`);
         setID(props.id);
@@ -26,7 +32,9 @@ function SkillPanel (props) {
             window.open ('/detail?type=' + props.id, '_self');
           }*/
         }}
+        
         className="panel"
+        // style={{zIndex:100}}
         onMouseMove={e => {
           e.stopPropagation ();
           // setXPos (e.clientX - e.currentTarget.offsetLeft); //e是鼠标,e.ClientX就是鼠标的X轴(以视口为基准),e.currentTarget就是触发事件的元素,它的offsetLeft就是左边框到视口的距离,这样一减,就是鼠标到元素左边框的距离
