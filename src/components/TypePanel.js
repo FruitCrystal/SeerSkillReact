@@ -1,22 +1,22 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 // import { useNavigate } from 'react-router-dom'//携参跳转
-import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
-import SearchByType from "../pages/SearchByType";
-import "../static/style/typepanel.css";
-import { Skeleton } from "react-vant";
-import { Form, Selector } from "react-vant";
-import { Switch } from "react-vant";
-import { Search, Toast } from "react-vant";
+import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
+import SearchByType from '../pages/SearchByType';
+import '../static/style/typepanel.css';
+import { Skeleton } from 'react-vant';
+import { Form, Selector } from 'react-vant';
+import { Switch } from 'react-vant';
+import { Search, Toast } from 'react-vant';
 function TypePanel(props) {
     const [types, setTypes] = useState([]);
     const [loading, SetLoading] = useState(false);
-    const [orderBy, setOrderBy] = useState("Power");
+    const [orderBy, setOrderBy] = useState('Power');
     const [isAsc, setIsAsc] = useState(false);
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState('');
 
     useEffect(() => {
-        axios.get("http://localhost:8080/getAllType").then((res) => {
+        axios.get('http://localhost:8080/getAllType').then((res) => {
             setTypes(res.data);
             console.log(res.data);
             SetLoading(true);
@@ -26,17 +26,17 @@ function TypePanel(props) {
     }, []);
 
     return (
-        <div className={ props.allowJump? "":"type-panel"}>
-            <div className="options" style={{display:"flex"}}>
+        <div className={props.allowJump ? '' : 'type-panel'}>
+            <div className="options" style={{ display: 'flex' }}>
                 <Search
-                style={{borderRadius:8}}
-                // background="rgb(0,0,0,0)"
+                    style={{ borderRadius: 8 }}
+                    // background="rgb(0,0,0,0)"
                     value={value}
                     showAction
                     onCancel={() => {
-                        Toast("取消");
-                        console.log("草");
-                        setValue("");
+                        Toast('取消');
+                        console.log('草');
+                        setValue('');
                     }}
                     onChange={(keyWord) => {
                         setValue(keyWord);
@@ -44,7 +44,7 @@ function TypePanel(props) {
                     align="left"
                     placeholder="请输入属性"
                 />
-                <Form.Item name="single" label="" style={{ display: props.allowJump? "flex" :"none" }}>
+                <Form.Item name="single" label="" style={{ display: props.allowJump ? 'flex' : 'none' }}>
                     <label>升序</label>
                     <Switch
                         checked={isAsc}
@@ -55,24 +55,24 @@ function TypePanel(props) {
                     <Selector
                         options={[
                             {
-                                label: "按使用次数排序",
-                                description: "",
-                                value: "MaxPP",
+                                label: '按使用次数排序',
+                                description: '',
+                                value: 'MaxPP',
                             },
                             {
-                                label: "按技能威力排序",
+                                label: '按技能威力排序',
 
-                                value: "Power",
+                                value: 'Power',
                             },
                             {
-                                label: "按技能先制级别排序",
+                                label: '按技能先制级别排序',
 
-                                value: "Priority",
+                                value: 'Priority',
                             },
                             {
-                                label: "按技能暴击率排序",
+                                label: '按技能暴击率排序',
 
-                                value: "critRate",
+                                value: 'critRate',
                             },
                         ]}
                         defaultValue={[orderBy]}
@@ -89,7 +89,7 @@ function TypePanel(props) {
                     <li>
                         {types.map((e) => {
                             if (!value && props.allowJump) {
-                                console.log("分支1");
+                                console.log('分支1');
                                 //如果用户没有输入属性,就显示全部属性
                                 return (
                                     <Link
@@ -99,12 +99,15 @@ function TypePanel(props) {
                                         to={`/searchByType`}
                                     >
                                         {/* <img style={{ width: "4%", height: "6%" }} src={require(`../static/${e.type.replace("·", "")}.webp`)} /> */}
-                                        <img style={{ width: "4%", height: "6%" }} src={(`http://localhost:8080/img/${e.type.replace('·','')}.webp`)}/>
+                                        <img
+                                            style={{ width: '4%', height: '6%' }}
+                                            src={`http://localhost:8080/img/${e.type.replace('·','')}.webp`}
+                                        />
                                     </Link>
                                 );
                             } else if (value && e.type.includes(value) && props.allowJump) {
                                 //模糊搜索
-                                console.log("分支2");
+                                console.log('分支2');
                                 return (
                                     <Link
                                         onClick={(ev) => {
@@ -112,35 +115,37 @@ function TypePanel(props) {
                                         }}
                                         to={`/searchByType`}
                                     >
-                                        <img style={{ width: "4%", height: "6%" }} src={require(`../static/${e.type.replace("·", "")}.webp`)} />
+                                        <img style={{ width: '4%', height: '6%' }} src={require(`../static/${e.type.replace('·', '')}.webp`)} />
                                     </Link>
                                 );
                             } else if (!value && e.type.includes(value) && props.allowJump) {
-                              console.log("分支3");
+                                console.log('分支3');
                                 return (
                                     <Link>
-                                        <img style={{ width: "4%", height: "6%", opacity: "0" }} />
+                                        <img style={{ width: '4%', height: '6%', opacity: '0' }} />
                                     </Link>
                                 );
-                            } else if(value && e.type.includes(value) && !props.allowJump){
-                              console.log("分支4");
+                            } else if (value && e.type.includes(value) && !props.allowJump) {
+                                console.log('分支4');
                                 return (
                                     <img
                                         onClick={(ev) => {
                                             props.passValue({ type: e.type, order: orderBy, isAsc: isAsc });
                                         }}
-                                        style={{ width: "4%", height: "6%",cursor:"pointer" }}
-                                        src={require(`../static/${e.type.replace("·", "")}.webp`)}
+                                        style={{ width: '4%', height: '6%', cursor: 'pointer' }}
+                                        src={require(`../static/${e.type.replace('·', '')}.webp`)}
                                     />
                                 );
-                            }
-                            else if(!value && !props.allowJump){
-                              console.log("分支5");
-                              return (
-                                    
-                                        <img onClick={(ev) => {
+                            } else if (!value && !props.allowJump) {
+                                console.log('分支5');
+                                return (
+                                    <img
+                                        onClick={(ev) => {
                                             props.passValue({ type: e.type, order: orderBy, isAsc: isAsc });
-                                        }} style={{ width: "4%", height: "6%" ,cursor:"pointer"}} src={require(`../static/${e.type.replace("·", "")}.webp`)} />
+                                        }}
+                                        style={{ width: '4%', height: '6%', cursor: 'pointer' }}
+                                        src={require(`../static/${e.type.replace('·', '')}.webp`)}
+                                    />
                                 );
                             }
                         })}
