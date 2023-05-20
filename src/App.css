@@ -27,7 +27,7 @@ tr > td {
 
 a {
     text-decoration: none;
-    width: 100px;
+    /*width: 100px;*/
     height: 70px;
     line-height: 70px;
     text-align: center;

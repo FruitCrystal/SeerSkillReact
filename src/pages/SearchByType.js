@@ -5,8 +5,8 @@ import SkillPanel from "../components/SkillPanel";
 import { Button } from "react-vant";
 import "../static/style/searchByType.css";
 import { Pagination } from "react-vant";
-function SearchByType() {
-    const [nowtype, setTypes] = useState("");
+function SearchByType(props) {
+    const [nowtype, setTypes] = useState(window.location.href.split("/")[4]? window.location.href.split("/")[4]:"");
     const [loading, setLoading] = useState(false);
     const [skillList, setList] = useState([]);
     const [order, setOrder] = useState("");
@@ -16,6 +16,8 @@ function SearchByType() {
     const [offset, setOffset] = useState(0);//分页查询,sql8.0以上支持,语法: select * from table limit `每页数量` offset `查询偏移量`,如果偏移量是400,就从第400挑数据开始找
     const [sum,setSum] = useState(0);
     //AI makes this useEffect,
+    console.log(window.location.href.split("/")[4])
+
     console.log("leng=" + skillList.length);
     useEffect(() => {
         if (nowtype && order) {
@@ -39,7 +41,7 @@ function SearchByType() {
                 // console.log("属性:"+nowtype+"数量:"+ resp.sum)
                 setLoading(true);
             });
-    }, [url]);
+    }, [url,nowtype]);
     const callback = (getValueFromChild) => {
         setTypes(getValueFromChild.type);
         setOrder(getValueFromChild.order);
@@ -59,14 +61,13 @@ function SearchByType() {
                         setTypes("");
                         setPage(1);
                         setOffset(0);
-                        
                     }}
                 >
                     返回
                 </Button>
             ) : null}
             <div className="search-by-type">
-                {nowtype == "" ? <TypePanel passValue={callback} order={order} allowJump={true}></TypePanel> : ""}
+                {nowtype === "" ? <TypePanel passValue={callback} order={order} allowJump={true}></TypePanel> : ""}
                 {loading && nowtype !== "" ? (
                     <div className="result-panel">
                         {skillList.map((item) => (
@@ -91,7 +92,6 @@ function SearchByType() {
                     <Pagination className="page"
                         value={page}
                         onChange={(e) => {
-                            console.log("offest=" +offset);
                             if (nowtype && order) {
                                 setUrl(`http://localhost:8080/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
                                 setPage(e);
