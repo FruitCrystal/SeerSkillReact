@@ -12,6 +12,7 @@ import DIYSkill from './pages/DIYSkill';
 import { useState } from 'react';
 import SkillLib from './pages/SkillLib';
 import SearchByPet from "./pages/SearchByPet";
+import Effect from "./pages/Effect";
 function App () {
   const [active,setActive]=useState(1);
   return (
@@ -28,11 +29,11 @@ function App () {
             <li className={active==4? "active":'unactive'}><Link data-index={4} to="/searchByName">按名称查找</Link></li>
             <li className={active==5? "active":'unactive'}><Link data-index={5} to="/DiySkill">自定义技能</Link></li>
             <li className={active==6? "active":'unactive'}><Link data-index={6} to="/SearchByPet">按精灵查找</Link></li>
-            <li className={active==7? "active":'unactive'}><Link data-index={7} to="/SkillLib">技能库</Link></li>
-            <li className={active==8? "active":'unactive'}><Link data-index={8} to="/SkillLib">技能库</Link></li>
-            <li className={active==9? "active":'unactive'}><Link data-index={9} to="/SkillLib">技能库</Link></li>
-            <li className={active==10? "active":'unactive'}><Link data-index={10} to="/SkillLib">技能库</Link></li>
-            <li className={active==11? "active":'unactive'}><Link data-index={11} to="/SkillLib">技能库</Link></li>
+            <li className={active==7? "active":'unactive'}><Link data-index={7} to="/Effect">技能效果</Link></li>
+            <li className={active==8? "active":'unactive'}><Link data-index={8} to="/SkillLib">施工中</Link></li>
+            <li className={active==9? "active":'unactive'}><Link data-index={9} to="/SkillLib">施工中</Link></li>
+            <li className={active==11? "active":'unactive'}><Link data-index={11} to="/SkillLib">施工中</Link></li>
+            <li className={active==10? "active":'unactive'}><Link data-index={10} to="/SkillLib">施工中</Link></li>
           </ul>
         </div>
         <Routes>
@@ -44,6 +45,7 @@ function App () {
           <Route path="/DiySkill" element={<DIYSkill />} />;
           <Route path="/SkillLib" element={<SkillLib />} />;
           <Route path="/SearchByPet" element={<SearchByPet />} />;
+          <Route path="/Effect" element={<Effect />} />;
         </Routes>
       </div>
 

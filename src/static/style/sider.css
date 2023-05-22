@@ -14,6 +14,10 @@
     padding: 0;
 }
 
+.Sidebar >ul>li> a{
+    line-height: 70px;
+}
+
 .Sidebar li {
     border-bottom: 1px solid #444;
 }
