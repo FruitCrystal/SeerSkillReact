@@ -1,3 +1,12 @@
+# 图片展示
+![image](src/static/image/首页.png)
+![image](src/static/image/随机查询.png)
+![image](src/static/image/按属性搜索.png)
+![image](src/static/image/按属性搜索结果.png)
+![image](src/static/image/按技能名称.png)
+![image](src/static/image/按技能持有者名字查找.png)
+![image](src/static/image/按技能持有者查找.png)
+![image](src/static/image/自定义技能.png)
 # 更新日志
 
 ## 2023-5-12

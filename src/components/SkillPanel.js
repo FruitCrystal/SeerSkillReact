@@ -19,10 +19,6 @@ function SkillPanel (props) {
         fetch(`http://localhost:8080/deleteSkill?id=${props.id}`);
         setID(props.id);
       }}>删除</button>:null}
-        {props.id>49999?<button style={{position:"absolute",zIndex:1}} className="update-tag" onClick={()=>{
-            props.passValue(props.id)
-            alert("正在施工"+id)
-        }}>修改</button>:null}
       <div
         onClick={e => {
           console.log ('id=' + props.id);

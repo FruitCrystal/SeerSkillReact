@@ -24,7 +24,7 @@ function SearchByPet(){
     return (<div>
         <Search
             value={value}
-            style={{width:"100%"}}
+            style={{minWidth:"100%s"}}
             placeholder="输入精灵的id或者名字，支持模糊搜索.按Enter以搜索"
             showAction
             onSearch={(val)=>{
@@ -33,27 +33,30 @@ function SearchByPet(){
             }}
         />
         <div  >
-            <div>您正在查看<p style={{fontWeight:"bold",display:"inline"}}>{name? name:"有关"+"\""+value+"\""}</p>的技能</div>
             {!resultList.length ? (
                 <p>Loading...</p>
             ) : (
-                <div style={{display:"flex", flexWrap:"wrap"}}>
-                    {resultList.map((item) => (
-                    <SkillPanel
-                        key={item.id}
-                        shuxing={item.type}
-                        name={item.name}
-                        power={item.power}
-                        pp={item.maxPP}
-                        des={item.des}
-                        category={item.category}
-                        priority={item.priority}
-                        id={item.id}
-                        accuracy={item.accuracy}
-                        critRate={item.critRate}
-                        petsName={item.petsName}
-                    />))}
-            </div>
+                <>
+                    <div>您正在查看<p style={{fontWeight:"bold",display:"inline"}}>{name? name:"有关"+"\""+value+"\""}</p>的技能</div>
+                    <div style={{display:"flex", flexWrap:"wrap"}}>
+                        {resultList.map((item) => (
+                            <SkillPanel
+                                key={item.id}
+                                shuxing={item.type}
+                                name={item.name}
+                                power={item.power}
+                                pp={item.maxPP}
+                                des={item.des}
+                                category={item.category}
+                                priority={item.priority}
+                                id={item.id}
+                                accuracy={item.accuracy}
+                                critRate={item.critRate}
+                                petsName={item.petsName}
+                            />))}
+                    </div>
+                </>
+
             )}
         </div>
     </div>)

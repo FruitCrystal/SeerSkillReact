@@ -20,7 +20,6 @@ function Home() {
                 <h3>各系技能数量</h3>
                 <div style={
                     {
-                        border:"8px #fff solid",
                         overflowX:"scroll",
                         overflowY:"hidden",
                         maxWidth:"100vh",
