@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import { Divider, Table } from 'antd';
+import { Divider } from 'antd';
 import EffectTable from "../components/EffectTable";
 
 function Effect(){

@@ -1,0 +1,15 @@
+.head{
+    width: calc(100vw - 120px);
+    background-color: #fff8;
+    height: 75px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 75px;
+}
+.back-btn{
+    width: 75px;
+}
+.rv-pagination {
+    position: absolute;
+    bottom: 180px;
+}

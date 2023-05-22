@@ -13,6 +13,7 @@ import { useState } from 'react';
 import SkillLib from './pages/SkillLib';
 import SearchByPet from "./pages/SearchByPet";
 import Effect from "./pages/Effect";
+import SearchByEffect from "./pages/SearchByEffect";
 function App () {
   const [active,setActive]=useState(1);
   return (
@@ -46,6 +47,7 @@ function App () {
           <Route path="/SkillLib" element={<SkillLib />} />;
           <Route path="/SearchByPet" element={<SearchByPet />} />;
           <Route path="/Effect" element={<Effect />} />;
+          <Route path="/searchByEffect/:id" element={<SearchByEffect />} />;
         </Routes>
       </div>
 

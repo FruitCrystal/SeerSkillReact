@@ -2,11 +2,15 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
 import { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
+import {Link} from "react-router-dom";
 const EffectTable = (props) => {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
+    const table = useRef(null);
+    console.log(table)
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
+        console.log("搜索！")
         confirm();
         setSearchText(selectedKeys[0]);
         setSearchedColumn(dataIndex);
@@ -14,7 +18,9 @@ const EffectTable = (props) => {
     const handleReset = (clearFilters) => {
         clearFilters();
         setSearchText('');
+
     };
+
     const getColumnSearchProps = (dataIndex) => ({
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
             <div
@@ -27,7 +33,9 @@ const EffectTable = (props) => {
                     ref={searchInput}
                     placeholder={`Search ${dataIndex}`}
                     value={selectedKeys[0]}
-                    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onChange={(e) => {
+                        setSelectedKeys(e.target.value ? [e.target.value] : []);
+                    }}
                     onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
                     style={{
                         marginBottom: 8,
@@ -47,7 +55,8 @@ const EffectTable = (props) => {
                         Search
                     </Button>
                     <Button
-                        onClick={() => clearFilters && handleReset(clearFilters)}
+                        onClick={() => {handleReset(clearFilters);
+                            handleSearch(selectedKeys, confirm, dataIndex)}}
                         size="small"
                         style={{
                             width: 90,
@@ -111,6 +120,7 @@ const EffectTable = (props) => {
     });
     const columns = [
         {
+
             title: 'ID',
             dataIndex: 'id',
             key: 'id',
@@ -121,8 +131,15 @@ const EffectTable = (props) => {
             title: '描述',
             dataIndex: 'des',
             key: 'des',
-            width: '97%',
+            width: '80%',
             ...getColumnSearchProps('des'),
+        },
+        {
+            title: '操作',
+            dataIndex: '',
+            key: 'x',
+            render: (r) => <Link to={`/searchByEffect/${r.id}` }>查询相关技能</Link>,
+            width:"17%"
         }
     ];
     return <Table columns={columns} dataSource={props.data} />;

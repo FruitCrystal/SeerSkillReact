@@ -46,6 +46,7 @@ function RandomSearch() {
 
                     setUpdate(update+1)
                 }}
+                
             >
                 再次搜索
             </Button>
