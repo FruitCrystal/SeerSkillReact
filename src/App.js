@@ -11,6 +11,7 @@ import SearchByName from './pages/SearchByName';
 import DIYSkill from './pages/DIYSkill';
 import { useState } from 'react';
 import SkillLib from './pages/SkillLib';
+import SearchByPet from "./pages/SearchByPet";
 function App () {
   const [active,setActive]=useState(1);
   return (
@@ -26,7 +27,7 @@ function App () {
             <li className={active==3? "active":'unactive'}><Link data-index={3} to="/searchByType">按属性查找</Link></li>
             <li className={active==4? "active":'unactive'}><Link data-index={4} to="/searchByName">按名称查找</Link></li>
             <li className={active==5? "active":'unactive'}><Link data-index={5} to="/DiySkill">自定义技能</Link></li>
-            <li className={active==6? "active":'unactive'}><Link data-index={6} to="/SkillLib">技能库</Link></li>
+            <li className={active==6? "active":'unactive'}><Link data-index={6} to="/SearchByPet">按精灵查找</Link></li>
             <li className={active==7? "active":'unactive'}><Link data-index={7} to="/SkillLib">技能库</Link></li>
             <li className={active==8? "active":'unactive'}><Link data-index={8} to="/SkillLib">技能库</Link></li>
             <li className={active==9? "active":'unactive'}><Link data-index={9} to="/SkillLib">技能库</Link></li>
@@ -42,6 +43,7 @@ function App () {
           <Route path="/searchByName" element={<SearchByName />} />;
           <Route path="/DiySkill" element={<DIYSkill />} />;
           <Route path="/SkillLib" element={<SkillLib />} />;
+          <Route path="/SearchByPet" element={<SearchByPet />} />;
         </Routes>
       </div>
 
