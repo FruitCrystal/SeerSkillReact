@@ -6,19 +6,20 @@ import { Button } from 'react-vant';
 import '../static/style/searchByType.css';
 import { Pagination } from 'react-vant';
 import TypeEffect from '../components/TypeEffective';
-function SearchByType(props) {
-	const [nowtype, setTypes] = useState(window.location.href.split('/')[4] ? window.location.href.split('/')[4] : '');
+import SearchOption from '../components/SearchOption';
+function SearchByTypeCopy(props) {
+	const [nowtype, setTypes] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [skillList, setList] = useState([]);
-	const [order, setOrder] = useState(props.order);
+	const [order, setOrder] = useState('Power');
 	const [isAsc, setIsAsc] = useState(false);
 	const [url, setUrl] = useState('');
 	const [page, setPage] = useState(1);
 	const [offset, setOffset] = useState(0); //分页查询,sql8.0以上支持,语法: select * from table limit `每页数量` offset `查询偏移量`,如果偏移量是400,就从第400挑数据开始找
 	const [sum, setSum] = useState(0);
 	//AI makes this useEffect,
-	console.log(window.location.href.split('/')[4]);
-
+	console.log('属性' + nowtype);
+	console.log(order);
 	console.log('leng=' + skillList.length);
 	useEffect(
 		() => {
@@ -26,7 +27,7 @@ function SearchByType(props) {
 				setUrl(`http://localhost:8080/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
 			}
 		},
-		[nowtype, order, isAsc, offset]
+		[nowtype, order, order, offset]
 	);
 
 	//很明显，url参数没有被正确设置。具体来说，nowtype和order变量被用来构建url字符串，但是它们在fetch调用使用它们之前没有被及时更新。这是因为useState钩子的更新是异步的，所以在调用setTypes和setOrder之后，url变量不会立即更新。为了解决这个问题，您可以使用useEffect钩子在nowtype或order更改时更新url变量。以下是如何修改SearchByType组件以实现此目的的示例：
@@ -50,29 +51,34 @@ function SearchByType(props) {
 		setOrder(getValueFromChild.order);
 		setIsAsc(getValueFromChild.isAsc);
 	};
-	// console.log(url);
-	// console.log(nowtype);
-	// console.log(order);
-	// console.log(isAsc);
-	// console.log("sum="+sum)
+	console.log(url);
+	console.log(nowtype);
+	console.log(order);
+	console.log(isAsc);
+	console.log('sum=' + sum);
 	return (
 		<div>
-			{nowtype !== ''
-				? <Button
-						type="primary"
-						onClick={() => {
-							setTypes('');
-							setPage(1);
-							setOffset(0);
-						}}
-					>
-						返回
-					</Button>
-				: null}
 			<div className="search-by-type">
-				{nowtype === '' ? <TypePanel passValue={callback} order={order} allowJump={true} /> : ''}
-				{/*{nowtype === '' ? <TypeEffect /> : ''}*/}
-
+				{true
+					? <div>
+							<SearchOption
+								width={708}
+								passValue={value => {
+									setIsAsc(value.isAsc);
+									setOrder(value.order);
+								}}
+							/>
+							<div style={{ width: 708 }}>
+								{' '}<TypeEffect
+									passValue={value => {
+										setTypes(value);
+										setPage(1);
+										setOffset(0);
+									}}
+								/>
+							</div>
+						</div>
+					: ''}
 				{loading && nowtype !== ''
 					? <div className="result-panel">
 							{skillList.map(item =>
@@ -92,7 +98,7 @@ function SearchByType(props) {
 								/>
 							)}
 						</div>
-					: <div style={{ width: 'calc(100vw - 120px)' }} />}
+					: <p />}
 				{nowtype === ''
 					? null
 					: <Pagination
@@ -114,4 +120,4 @@ function SearchByType(props) {
 		</div>
 	);
 }
-export default SearchByType;
+export default SearchByTypeCopy;

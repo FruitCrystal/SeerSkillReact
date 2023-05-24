@@ -1,6 +1,6 @@
-import { SearchOutlined } from '@ant-design/icons';
-import { Button, Input, Space, Table } from 'antd';
-import { useRef, useState } from 'react';
+import {SearchOutlined} from '@ant-design/icons';
+import {Button,Input,Space,Table} from 'antd';
+import {useRef,useState} from 'react';
 import Highlighter from 'react-highlight-words';
 import {Link} from "react-router-dom";
 const EffectTable = (props) => {

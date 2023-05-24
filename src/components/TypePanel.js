@@ -1,20 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 // import { useNavigate } from 'react-router-dom'//携参跳转
-import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
-import SearchByType from '../pages/SearchByType';
+import {Link } from 'react-router-dom';
 import '../static/style/typepanel.css';
-import { Skeleton } from 'react-vant';
 import { Form, Selector } from 'react-vant';
 import { Switch } from 'react-vant';
 import { Search, Toast } from 'react-vant';
 function TypePanel(props) {
+    
     const [types, setTypes] = useState([]);
     const [loading, SetLoading] = useState(false);
     const [orderBy, setOrderBy] = useState('Power');
     const [isAsc, setIsAsc] = useState(false);
     const [value, setValue] = useState('');
-
     useEffect(() => {
         axios.get('http://localhost:8080/getAllType').then((res) => {
             setTypes(res.data);
@@ -61,17 +59,14 @@ function TypePanel(props) {
                             },
                             {
                                 label: '按技能威力排序',
-
                                 value: 'Power',
                             },
                             {
                                 label: '按技能先制级别排序',
-
                                 value: 'Priority',
                             },
                             {
                                 label: '按技能暴击率排序',
-
                                 value: 'critRate',
                             },
                         ]}

@@ -5,6 +5,7 @@ import { Overlay } from "react-vant";
 import TypePanel from "../components/TypePanel";
 // import axios from "axios";
 import SkillLib from "./SkillLib";
+import TypeEffect from "../components/TypeEffective";
 function DIYSkill() {
     // const [componentSize, setComponentSize] = useState("large");
     // const onFormLayoutChange = ({ size }) => {
@@ -87,7 +88,7 @@ function DIYSkill() {
     };
 
     const callback = (getValueFromChild) => {
-        setType(getValueFromChild.type);
+        setType(getValueFromChild);
         setShow(false);
     };
     return (
@@ -150,7 +151,9 @@ function DIYSkill() {
                         "您暂未选择属性"
                     )}
                     <Overlay visible={show} onClick={() => setShow(false)}>
-                        <TypePanel allowJump={false} passValue={callback}></TypePanel>
+                        <div style={{display:"flex",justifyContent:"center",width:"1000px",height:"1000px",alignItems:"center",borderRadius:"10px",overflow:"hidden"}}><TypeEffect passValue={callback}></TypeEffect></div>
+                        {/*<TypePanel allowJump={false} passValue={callback}></TypePanel>*/}
+                        
                     </Overlay>
                 </Form.Item>
                 <Form.Item label="技能先制级别" name="skillPriority">

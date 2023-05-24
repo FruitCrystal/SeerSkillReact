@@ -11,5 +11,6 @@
 }
 .rv-pagination {
     position: absolute;
-    bottom: 180px;
+    bottom: 20px;
+    right: 415px;
 }

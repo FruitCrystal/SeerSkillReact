@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import SkillPanel from "../components/SkillPanel";
 import '../static/style/SearchByPet.css'
+import {Empty} from "antd";
 function SearchByPet(){
     const [value, setValue] = useState("");
     const [page, setPage] = useState(0);
@@ -40,7 +41,7 @@ function SearchByPet(){
         />
         <div  >
             {!resultList.length ? (
-                <p>Loading...</p>
+                <Empty description="暂无内容"></Empty>
             ) : (
                 <>
                     <div>您正在查看<p style={{fontWeight:"bold",display:"inline"}}>{name? name:"有关"+"\""+value+"\""}</p>的技能</div>

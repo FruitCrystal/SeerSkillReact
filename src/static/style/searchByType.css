@@ -1,15 +1,15 @@
 .result-panel {
     /* position: relative; */
-    width: calc(100vw - 120px);
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
+    /*justify-content: center;*/
+    justify-content: space-around;
 }
 .search-by-type {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
+    /*flex-wrap: wrap;*/
+    /*flex-direction: column;*/
+    align-items: flex-start;
 }
 .type-switch > li > a > img {
     width: 50%;
