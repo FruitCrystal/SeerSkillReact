@@ -19,6 +19,7 @@ function SearchOption(props) {
 						checked={isAsc}
 						onChange={isAsc => {
 							setIsAsc(isAsc);
+							props.passValue({order:orderBy,isAsc:isAsc})
 						}}
 					/>
 					<Selector
@@ -45,7 +46,7 @@ function SearchOption(props) {
 						onChange={(arr, extend) => {
 							console.log(arr[0], extend.items);
 							setOrderBy(arr[0]);
-							props.passValue({order:orderBy,isAsc:isAsc})
+							props.passValue({order:arr[0],isAsc:isAsc})
 						}}
 					/>
 				</Form.Item>

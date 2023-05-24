@@ -27,7 +27,7 @@ function SearchByTypeCopy(props) {
 				setUrl(`http://localhost:8080/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
 			}
 		},
-		[nowtype, order, order, offset]
+		[nowtype, order, order, offset, isAsc]
 	);
 
 	//很明显，url参数没有被正确设置。具体来说，nowtype和order变量被用来构建url字符串，但是它们在fetch调用使用它们之前没有被及时更新。这是因为useState钩子的更新是异步的，所以在调用setTypes和setOrder之后，url变量不会立即更新。为了解决这个问题，您可以使用useEffect钩子在nowtype或order更改时更新url变量。以下是如何修改SearchByType组件以实现此目的的示例：
