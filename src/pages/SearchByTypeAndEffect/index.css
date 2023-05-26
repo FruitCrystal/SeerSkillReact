@@ -1,0 +1,35 @@
+.effects {
+	/*position: relative;*/
+	/*top: 25px;*/
+	width: 350px;
+	overflow-y: scroll;
+	background-color: rgba(94, 204, 255, 0.432);
+	transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.effects > ul > li {
+	margin: 5px 0px;
+	cursor: pointer;
+	border-bottom: 1px solid #000;
+}
+
+.effects > ul > li:hover {
+	background-color: rgba(149, 187, 238, 0.568);
+}
+.container {
+	overflow-x: hidden;
+}
+.effects > ul > li:nth-child(even) {
+	/*background-color: #fff8;*/
+}
+.main {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.result-panel {
+	display: flex;
+	width: 1301px;
+	flex-direction: row;
+	flex-wrap: wrap;
+}

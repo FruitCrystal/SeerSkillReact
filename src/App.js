@@ -2,21 +2,22 @@ import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
 import './App.css';
 import './SkillPanel.css';
 import RandomSearch from './pages/RandomSearch';
-import Detail from './pages/Detail';
+import Detail from './components/Detail';
 import SearchByType from './pages/SearchByType';
 import './static/style/sider.css';
 // import TypePanel from './components/TypePanel';
 import Home from './pages/Home';
 import SearchByName from './pages/SearchByName';
-import DIYSkill from './pages/DIYSkill';
+import DIYSkill from './pages/DiySkill/DIYSkill';
 import { useState } from 'react';
 import SkillLib from './pages/SkillLib';
 import SearchByPet from './pages/SearchByPet';
 import Effect from './pages/Effect';
 import SearchByEffect from './pages/SearchByEffect';
-import TypeEffect from './components/TypeEffective';
+//import TypeEffect from './components/TypeEffective';
 import Restraint from './pages/Restraint';
 import SearchByTypePlus from './pages/SearchByTypePlus';
+import SearchByTypeAndEffect from './pages/SearchByTypeAndEffect/SearchByTypeAndEffect.jsx';
 function App() {
 	const [active, setActive] = useState(1);
 	return (
@@ -75,8 +76,8 @@ function App() {
 							</Link>
 						</li>
 						<li className={active == 11 ? 'active' : 'unactive'}>
-							<Link data-index={11} to="/SkillLib">
-								施工中
+							<Link data-index={11} to="/SearchEffect">
+								查找特定技能
 							</Link>
 						</li>
 						<li className={active == 10 ? 'active' : 'unactive'}>
@@ -99,6 +100,7 @@ function App() {
 					<Route path="/searchByEffect/:id" element={<SearchByEffect />} />;
 					<Route path="/Restraint" element={<Restraint />} />;
 					<Route path="/SearchByTypePuls" element={<SearchByTypePlus />} />;
+					<Route path="/SearchEffect" element={<SearchByTypeAndEffect />} />;
 				</Routes>
 			</div>
 		</BrowserRouter>

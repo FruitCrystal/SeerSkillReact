@@ -2,10 +2,10 @@ import { Button, Form, Input, InputNumber, Select } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import {useRef, useState } from "react";
 import { Overlay } from "react-vant";
-import TypePanel from "../components/TypePanel";
+import TypePanel from "../../components/TypePanel";
 // import axios from "axios";
-import SkillLib from "./SkillLib";
-import TypeEffect from "../components/TypeEffective";
+import SkillLib from "../SkillLib";
+import TypeEffect from "../../components/TypeEffective";
 function DIYSkill() {
     // const [componentSize, setComponentSize] = useState("large");
     // const onFormLayoutChange = ({ size }) => {
@@ -145,7 +145,7 @@ function DIYSkill() {
                                     ? { width: "15%", height: "25%", display: "inline" }
                                     : { width: "5%", height: "8%" }
                             }
-                            src={require(`../static/${type.replace("·", "") === "--" ? "属性" : type.replace("·", "")}.webp`)}
+                            src={require(`../../static/${type.replace("·", "") === "--" ? "属性" : type.replace("·", "")}.webp`)}
                         />
                     ) : (
                         "您暂未选择属性"

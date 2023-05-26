@@ -1,5 +1,5 @@
 import {Search, Toast} from "react-vant";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import SkillPanel from "../components/SkillPanel";
 import '../static/style/SearchByPet.css'
@@ -9,28 +9,31 @@ function SearchByPet(){
     const [page, setPage] = useState(0);
     const [resultList, setResultList] = useState([]);
     const [name,setName] = useState("");
+    //const search = useRef(null)
+    //window.addEventListener("keydown",(e)=>{e.code==="Enter"?search.current.focus(1): console.log(e.code)})
     useEffect(()=>{
         if (value)
-         axios.get(`http://localhost:8080/getSkillByIdOrName?val=${value}`).then((res)=>{
+        axios.get(`http://localhost:8080/getSkillByIdOrName?val=${value}`).then((res)=>{
             setResultList(res.data);
             console.log(res.data)
-             if(!res.data.length){
-                 alert("查询结果为空！")
-                 setValue("")
-                 return ()=>{}
-             }
-             res.data.map(item=>{
-                 console.log(item.petsName.split("、")[item.petsID.split(',').indexOf(value)])
-                 setName(item.petsName.split("、")[item.petsID.split(',').indexOf(value)])
-             })
+            if(!res.data.length){
+                alert("查询结果为空！")
+                setValue("")
+                return ()=>{}
+            }
+            res.data.map(item=>{
+                console.log(item.petsName.split("、")[item.petsID.split(',').indexOf(value)])
+                setName(item.petsName.split("、")[item.petsID.split(',').indexOf(value)])
+            })
         }).catch(err=>{
             alert("输入有误，请重新输入");
-         })
+        })
         else return ()=>{}
     },[value])
 
     return (<div>
         <Search
+            autoFocus
             value={value}
             className={"search"}
             placeholder="输入精灵的id或者名字，支持模糊搜索.按Enter以搜索"

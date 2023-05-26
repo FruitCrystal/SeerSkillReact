@@ -92,7 +92,7 @@ function SearchByType(props) {
 								/>
 							)}
 						</div>
-					: <div style={{ width: 'calc(100vw - 120px)' }} />}
+					: <p />}
 				{nowtype === ''
 					? null
 					: <Pagination

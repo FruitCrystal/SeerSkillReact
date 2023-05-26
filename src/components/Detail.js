@@ -71,23 +71,30 @@ function Detail(props) {
 								</td>
 							</tr>
 							<tr>
+								<th>技能威力</th>
+								<td>
+									{information.power}
+								</td>
+							</tr>
+							<tr>
 								<th>先制级别</th>
-								<td
-									style={information.priority == 0 ? { opacity: '0' } : { display: 'block' }} //低配版v-show
-								>
+								<td style={information.priority == 0 ? { opacity: '0' } : { display: 'block' }}>
+									{/*//低配版v-show*/}
 									{information.priority > 0 ? '+' + information.priority : '' + information.priority}
 								</td>
 							</tr>
 							<tr>
-								<th>技能持有者</th>
-								<td style={{ whiteSpace: 'pre-line' }}>
-									{information.petsName}
+								<th style={{ Height: '100px' }}>技能持有者</th>
+								<td style={{ whiteSpace: 'pre-wrap', maxHeight: 100 }}>
+									<div style={{ maxHeight: '100px', overflowY: 'scroll' }}>
+										{information.petsName}
+									</div>
 								</td>
 							</tr>
 							<tr>
 								<th>技能效果</th>
 								<td style={{ whiteSpace: 'pre-line' }}>
-									{information.des}
+									{information.des.split('；').map((item, index) => `(${index + 1})：${item}\n`)}
 								</td>
 							</tr>
 						</table>
