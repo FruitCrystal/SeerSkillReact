@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Bar from '../components/Bar';
-import { Link } from 'react-router-dom';
 function Home() {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -11,6 +10,9 @@ function Home() {
 			.then(res => {
 				setData(res.data);
 				setLoading(false);
+			})
+			.catch(err=>{
+				console.log(err);
 			})
 			.finally(() => console.log(data));
 	}, []);

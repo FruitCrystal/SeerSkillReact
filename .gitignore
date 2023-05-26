@@ -27,3 +27,5 @@ yarn-error.log*
 .idea/seer_skills.iml
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/SeerSkill.iml
