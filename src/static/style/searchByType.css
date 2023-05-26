@@ -1,13 +1,14 @@
 .result-panel {
-    /* position: relative; */
     display: flex;
+    width: 1001px;
+    flex-direction: row;
     flex-wrap: wrap;
-    /*justify-content: center;*/
-    justify-content: flex-start;
-    margin-left: 60px;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 .search-by-type {
     display: flex;
+    width: 708px;
     /*flex-wrap: wrap;*/
     /*flex-direction: column;*/
     align-items: flex-start;

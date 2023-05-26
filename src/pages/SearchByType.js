@@ -3,7 +3,7 @@ import TypePanel from '../components/TypePanel';
 import SkillPanel from '../components/SkillPanel';
 // import axios from "axios";
 import { Button } from 'react-vant';
-import '../static/style/searchByType.css';
+//import '../static/style/searchByType.css';
 import { Pagination } from 'react-vant';
 import TypeEffect from '../components/TypeEffective';
 function SearchByType(props) {
@@ -69,7 +69,7 @@ function SearchByType(props) {
 						返回
 					</Button>
 				: null}
-			<div className="search-by-type">
+			<div className="search-by-type" style={{ width: '100%' }}>
 				{nowtype === '' ? <TypePanel passValue={callback} order={order} allowJump={true} /> : ''}
 				{/*{nowtype === '' ? <TypeEffect /> : ''}*/}
 
