@@ -1,13 +1,16 @@
-// import axios from 'axios';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 // import SkillPanel from '../components/SkillPanel';
 import '../static/style/detail.css';
-import { Skeleton } from 'react-vant';
+import { Button, Skeleton } from 'react-vant';
+//import { HeartOutlined } from '@ant-design/icons';
 // import {Button} from 'react-vant';
 function Detail(props) {
 	const [information, setInformation] = useState({});
 	const [loading, setLoading] = useState(true); //useEffect钩子用于从服务器获取数据并更新information的状态。但是，由于information的初始状态是一个空对象，组件将在获取数据之前呈现，因此information仍将是一个空对象。为了处理这个问题，您可以添加一个条件检查，以在获取数据并更新information之前呈现加载状态。
 	console.log(props.information); //传进来的id
+	const [collection, setCollection] = useState([]);
+	const [isCollected, setCollected] = useState(false);
 	let url = `http://localhost:8080/searchByID?id=${props.information}`; //根据传来的ID组织url
 	useEffect(
 		() => {
@@ -18,8 +21,37 @@ function Detail(props) {
 		},
 		[url]
 	);
+	useEffect(
+		() => {
+			axios
+				.get(`http://localhost:8080/collection/get`)
+				.then(res => {
+					console.log(res.data);
+					setCollection(res.data);
+					setCollected(res.data.includes(props.information));
+				})
+				.finally(() => {});
+		},
+		[isCollected]
+	);
 	return (
 		<div className="detail-page">
+			<div style={{ position: 'relative', left: '96%' }}>
+				<Button
+					size="small"
+					type="primary"
+					onClick={e => {
+						setCollected(p => !p); //切换样式
+						if (!isCollected) {
+							fetch(`http://localhost:8080/collection/add?id=${props.information}`);
+						} else {
+							fetch(`http://localhost:8080/collection/delete?id=${props.information}`);
+						}
+					}}
+				>
+					{isCollected ? <p className="collected">⭐</p> : <p className="uncollected">⭐</p>}
+				</Button>
+			</div>
 			{loading
 				? <Skeleton />
 				: <div>

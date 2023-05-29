@@ -18,6 +18,7 @@ import SearchByEffect from './pages/SearchByEffect';
 import Restraint from './pages/Restraint';
 import SearchByTypePlus from './pages/SearchByTypePlus';
 import SearchByTypeAndEffect from './pages/SearchByTypeAndEffect/SearchByTypeAndEffect.jsx';
+import CollectSkills from './pages/CollectSkills/CollectSkill';
 function App() {
 	const [active, setActive] = useState(1);
 	return (
@@ -81,8 +82,8 @@ function App() {
 							</Link>
 						</li>
 						<li className={active == 10 ? 'active' : 'unactive'}>
-							<Link data-index={10} to="/SkillLib">
-								施工中
+							<Link data-index={10} to="/Collect">
+								收藏技能
 							</Link>
 						</li>
 					</ul>
@@ -101,6 +102,7 @@ function App() {
 					<Route path="/Restraint" element={<Restraint />} />;
 					<Route path="/SearchByTypePuls" element={<SearchByTypePlus />} />;
 					<Route path="/SearchEffect" element={<SearchByTypeAndEffect />} />;
+					<Route path="/Collect" element={<CollectSkills />} />;
 				</Routes>
 			</div>
 		</BrowserRouter>

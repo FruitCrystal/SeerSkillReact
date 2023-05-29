@@ -26,3 +26,14 @@ tr:nth-child(odd) {
 .detail-page{
   display: flex;
 }
+
+.uncollected{
+  filter: grayscale(100);
+  transition: ease-in .1s;
+  scale: 1;
+}
+
+.collected{
+  transition: ease-in .1s;
+  scale: 1.4;
+}

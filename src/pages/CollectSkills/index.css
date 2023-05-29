@@ -1,0 +1,10 @@
+.result{
+	display: flex;
+	flex-wrap: wrap;
+}
+.fresh{
+	width: 3.5rem;
+	height: 2.15rem;
+	border: none;
+	background: linear-gradient(to top, rgb(114, 173, 221), rgb(52, 187, 252));;
+}

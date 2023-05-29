@@ -58,8 +58,11 @@ function SearchByType(props) {
 	return (
 		<div>
 			{nowtype !== ''
-				? <Button
-						type="primary"
+				? <button
+						style={{
+							width: '3.25rem',
+							height: '2.25rem'
+						}}
 						onClick={() => {
 							setTypes('');
 							setPage(1);
@@ -67,7 +70,7 @@ function SearchByType(props) {
 						}}
 					>
 						返回
-					</Button>
+					</button>
 				: null}
 			<div className="search-by-type" style={{ width: '100%' }}>
 				{nowtype === '' ? <TypePanel passValue={callback} order={order} allowJump={true} /> : ''}

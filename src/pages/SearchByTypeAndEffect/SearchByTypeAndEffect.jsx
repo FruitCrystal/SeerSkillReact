@@ -95,7 +95,7 @@ function SearchByTypeAndEffect() {
 					/>
 				</Overlay>
 
-				<div className="result-panel" style={{ display: 'flex', flexWrap: 'wrap', width: '500px' }}>
+				<div className="result-panel" style={{ display: 'flex', flexWrap: 'wrap' }}>
 					{!skillList.length ? (
 						<Empty description="请输入要查询的技能效果与属性"></Empty>
 					) : (

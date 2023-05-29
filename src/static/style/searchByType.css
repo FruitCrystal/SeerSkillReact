@@ -1,6 +1,6 @@
 .result-panel {
     display: flex;
-    width: 1001px;
+    width: 1000px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;

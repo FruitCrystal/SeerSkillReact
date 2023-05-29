@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+//import axios from 'axios';
+import {  useState } from 'react';
 // import { useNavigate } from 'react-router-dom'//携参跳转
-import {Link } from 'react-router-dom';
+//import {Link } from 'react-router-dom';
 import '../static/style/typepanel.css';
 import { Form, Selector } from 'react-vant';
 import { Switch } from 'react-vant';
-import { Search, Toast } from 'react-vant';
+//import { Search, Toast } from 'react-vant';
 function SearchOption(props) {
     const [orderBy, setOrderBy] = useState('Power');
     const [isAsc, setIsAsc] = useState(false);
