@@ -34,6 +34,7 @@ function Detail(props) {
 		},
 		[isCollected]
 	);
+	console.log(information);
 	return (
 		<div className="detail-page">
 			<div style={{ position: 'relative', left: '96%' }}>
@@ -55,7 +56,7 @@ function Detail(props) {
 			{loading
 				? <Skeleton />
 				: <div>
-						<table border={0} style={{ width: 'auto' }}>
+						<table border={0} style={{ width: 'auto' }} className="detail">
 							<tr style={{ whiteSpace: 'nowrap' }}>
 								<th>技能属性</th>
 								<td>
@@ -129,6 +130,22 @@ function Detail(props) {
 									{information.des.split('；').map((item, index) => `(${index + 1})：${item}\n`)}
 								</td>
 							</tr>
+							<tr>
+								<th>技能效果代码</th>
+								<td style={{ whiteSpace: 'pre-line' }}>
+									{information.sideEffect.split(' ').map((item, index) =>
+										<a href={`#/SearchByEffect/${item}`}>
+											{item + '  '}
+										</a>
+									)}
+								</td>
+							</tr>
+							<tr>
+								<th>技能效果数值</th>
+								<td style={{ whiteSpace: 'pre-line', lineHeight: '37px' }}>
+									{information.sideEffectArg}
+								</td>
+							</tr>
 						</table>
 					</div>}
 		</div>
@@ -136,24 +153,3 @@ function Detail(props) {
 }
 
 export default Detail;
-
-/*
-function Detail () {
-  const [information, SetInformation] = useState ({});
-  let id = parseInt (window.location.href.split ('=')[1]);
-  console.log ('id=' + id);
-  let url = `http://localhost:8080/searchByID?id=${id}`;
-  useEffect (() => {
-    fetch (url).then (res => res.json ()).then (resp => SetInformation (resp));
-  }, []);
-  console.log (information);
-  return (
-    <div>
-      {typeof information == 'undefine'
-        ? '获取失败'
-        : <SkillPanel shuxing={information.type} />}
-    </div>
-  );
-}
-export default Detail;
-*/

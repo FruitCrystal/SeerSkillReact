@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter, Link } from 'react-router-dom';
+import { Route, Routes, HashRouter, Link } from 'react-router-dom';
 import './App.css';
 import './SkillPanel.css';
 import RandomSearch from './pages/RandomSearch';
@@ -22,7 +22,7 @@ import CollectSkills from './pages/CollectSkills/CollectSkill';
 function App() {
 	const [active, setActive] = useState(1);
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<div id="main">
 				<div className="Sidebar">
 					<ul
@@ -42,7 +42,7 @@ function App() {
 							</Link>
 						</li>
 						<li className={active == 3 ? 'active' : 'unactive'}>
-							<Link data-index={3} to="/searchByType">
+							<Link data-index={3} to="/SearchByTypePuls">
 								按属性查找
 							</Link>
 						</li>
@@ -105,7 +105,7 @@ function App() {
 					<Route path="/Collect" element={<CollectSkills />} />;
 				</Routes>
 			</div>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
 

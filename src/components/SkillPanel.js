@@ -1,6 +1,6 @@
 import '../SkillPanel.css';
 import { useState } from 'react';
-import { Button, Overlay } from 'react-vant';
+import {  Overlay } from 'react-vant';
 import Detail from './Detail';
 function SkillPanel(props) {
 	const [visible, setVisible] = useState(false);

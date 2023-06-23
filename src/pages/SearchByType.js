@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import TypePanel from '../components/TypePanel';
 import SkillPanel from '../components/SkillPanel';
 // import axios from "axios";
-import { Button } from 'react-vant';
+//import { Button } from 'react-vant';
 //import '../static/style/searchByType.css';
 import { Pagination } from 'react-vant';
-import TypeEffect from '../components/TypeEffective';
+//import TypeEffect from '../components/TypeEffective';
 function SearchByType(props) {
 	const [nowtype, setTypes] = useState(window.location.href.split('/')[4] ? window.location.href.split('/')[4] : '');
 	const [loading, setLoading] = useState(false);

@@ -2,13 +2,20 @@ table>tr{
   white-space: nowrap;
 }
 table {
+  /*min-width: 1000px;*/
   border-collapse: collapse;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 th, td {
   text-align: left;
   padding: 8px;
+    /*min-width: 1000px;*/
+
+}
+.detail>td{
+  min-width: 1000px;
+
 }
 
 th {
@@ -17,6 +24,7 @@ th {
 }
 
 tr:nth-child(even) {
+  /*min-width: 850px;*/
   background-color: #f2f2f2;
 }
 tr:nth-child(odd) {

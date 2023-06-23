@@ -1,5 +1,5 @@
-import {Search, Toast} from "react-vant";
-import {useEffect, useRef, useState} from "react";
+import {Search} from "react-vant";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import SkillPanel from "../components/SkillPanel";
 import '../static/style/SearchByPet.css'
