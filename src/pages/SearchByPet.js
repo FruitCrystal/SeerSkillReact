@@ -47,7 +47,9 @@ function SearchByPet(){
                 <Empty description="暂无内容"></Empty>
             ) : (
                 <>
-                    <div>您正在查看<p style={{fontWeight:"bold",display:"inline"}}>{name? name:"有关"+"\""+value+"\""}</p>的技能</div>
+                {value? <img src={`http://seerh5.61.com/resource/assets/pet/head/${value}.png`} alt=""></img>:null}
+                    <div>您正在查看<p style={{fontWeight:"bold",display:"inline"}}>{name? name:"有关"+"\""+value+"\""}</p>的技能
+                    </div>
                     <div style={{display:"flex", flexWrap:"wrap"}}>
                         {resultList.map((item) => (
                             <SkillPanel
