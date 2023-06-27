@@ -46,7 +46,7 @@ function DIYSkill() {
             redirect: "follow",
         };
 
-        fetch("http://localhost:8080/addSkill", requestOptions)
+        fetch("/addSkill", requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 console.log(result);

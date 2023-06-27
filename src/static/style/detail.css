@@ -13,13 +13,13 @@ th, td {
     /*min-width: 1000px;*/
 
 }
-.detail>td{
+.detail>tr>td{
   min-width: 1000px;
 
 }
 
 th {
-  background-color: #56a8f5;
+  background-color: #1b91ff;
   color: white;
 }
 

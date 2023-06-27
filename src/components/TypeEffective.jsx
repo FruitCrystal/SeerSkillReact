@@ -16,7 +16,7 @@ function TypeEffect(props) {
 	useEffect(
 		() => {
 			axios
-				.get('http://localhost:8080/getAllType')
+				.get('/getAllType')
 				.then(res => {
 					setTypes(res.data);
 					types.map((item, index) => {
@@ -54,14 +54,14 @@ function TypeEffect(props) {
 							onClick={() => {
 								onClickType(item);
 							}}
-							imgUrl={`http://localhost:8080/img/${item.type.replace('·', '')}.webp`}
+							imgUrl={`/img/${item.type.replace('·', '')}.webp`}
 						/>
 					)}
 				</ul>
 
 				<ul className="type-container muti">
 					<div className="type-header">
-						双属性 <Search background="#0000" onChange={e => setMutiValue(e)} />
+						双属性
 					</div>
 					{mutiType.filter(t => !value || (value && t.type.includes(value))).map((item, index) => {
 						return (
@@ -71,7 +71,7 @@ function TypeEffect(props) {
 								onClick={() => {
 									onClickType(item);
 								}}
-								imgUrl={`http://localhost:8080/img/${item.type.replace('·', '')}.webp`}
+								imgUrl={`/img/${item.type.replace('·', '')}.webp`}
 							/>
 						);
 					})}

@@ -10,11 +10,11 @@ function CollectSkills(){
 	const [loading,setLoading] = useState(true);
 	const [fresh,setFresh]=useState(false);
 	useEffect(()=>{
-	axios.get(`http://localhost:8080/collection/get`).then(res=>{
+	axios.get(`/collection/get`).then(res=>{
 		setIDCollection(res.data);
 		//console.log(res.data);
 		res.data.map((item,index)=>{
-			axios.get(`http://localhost:8080/searchByID?id=${item}`).then((res)=>{
+			axios.get(`/searchByID?id=${item}`).then((res)=>{
 				//console.log(res.data);
 				setSkillCollection(p=>[...p,res.data])
 			}).finally(()=>{setLoading(false)})

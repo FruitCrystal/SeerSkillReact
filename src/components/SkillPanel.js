@@ -1,7 +1,8 @@
 import '../SkillPanel.css';
 import { useState } from 'react';
-import {  Overlay } from 'react-vant';
+import { Overlay } from 'react-vant';
 import Detail from './Detail';
+//import { root } from './../index';
 function SkillPanel(props) {
 	const [visible, setVisible] = useState(false);
 	const [id, setID] = useState(0);
@@ -19,7 +20,7 @@ function SkillPanel(props) {
 						className="diy-tag"
 						onClick={() => {
 							props.passValue(props.id);
-							fetch(`http://localhost:8080/deleteSkill?id=${props.id}`);
+							fetch(`/deleteSkill?id=${props.id}`);
 							setID(props.id);
 						}}
 					>
@@ -41,9 +42,16 @@ function SkillPanel(props) {
 				className="panel"
 				// style={{zIndex:100}}
 				onMouseMove={e => {
-					e.stopPropagation();
-					// setXPos (e.clientX - e.currentTarget.offsetLeft); //e是鼠标,e.ClientX就是鼠标的X轴(以视口为基准),e.currentTarget就是触发事件的元素,它的offsetLeft就是左边框到视口的距离,这样一减,就是鼠标到元素左边框的距离
-					// setYPos (e.clientY - e.currentTarget.offsetTop); //同理
+					let des = e.currentTarget.children[2];
+					let view = window.innerHeight; //视口高度
+					let scro = document.body.scrollHeight;
+					const rect = des.getBoundingClientRect();
+					const overflowY = rect.bottom - view;
+					console.log(rect);
+					if (overflowY > 0) {
+						console.log('越界！');
+						des.style.top = `${0 - overflowY - 95}px`;
+					}
 				}}
 			>
 				<img

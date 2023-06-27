@@ -6,7 +6,7 @@ function Home() {
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		axios
-			.get('http://localhost:8080/getSumOfAllType')
+			.get('/getSumOfAllType')
 			.then(res => {
 				setData(res.data);
 				setLoading(false);
@@ -53,8 +53,8 @@ function Home() {
 										alt="属性ico"
 										src={
 											item.Type !== '--'
-												? `http://localhost:8080/img/${item.Type.replace('·', '')}.webp`
-												: `http://localhost:8080/img/属性.webp`
+												? `/img/${item.Type.replace('·', '')}.webp`
+												: `/img/属性.webp`
 										}
 									/>
 									<Bar value={item.sum} type={item.Type} />

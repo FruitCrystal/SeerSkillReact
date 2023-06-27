@@ -29,12 +29,12 @@ function SearchByName() {
 	useEffect(
 		() => {
 			if (value) {
-				axios.get(`http://localhost:8080/searchByName?name=${value}&offset=${offset}`).then(res => {
+				axios.get(`/searchByName?name=${value}&offset=${offset}`).then(res => {
 					setResultList(res.data);
 					console.log(resultList);
 					setLoading(true);
 				});
-				axios.get(`http://localhost:8080/getSumByName?name=${value}`).then(res => {
+				axios.get(`/getSumByName?name=${value}`).then(res => {
 					console.log('sum=' + res.data.sum);
 					setSum(res.data.sum);
 				});

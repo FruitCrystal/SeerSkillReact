@@ -13,7 +13,7 @@ function SearchByPet(){
     //window.addEventListener("keydown",(e)=>{e.code==="Enter"?search.current.focus(1): console.log(e.code)})
     useEffect(()=>{
         if (value)
-        axios.get(`http://localhost:8080/getSkillByIdOrName?val=${value}`).then((res)=>{
+        axios.get(`/getSkillByIdOrName?val=${value}`).then((res)=>{
             setResultList(res.data);
             console.log(res.data)
             if(!res.data.length){
@@ -48,7 +48,7 @@ function SearchByPet(){
             ) : (
                 <>
                 {value? <img src={`http://seerh5.61.com/resource/assets/pet/head/${value}.png`} alt=""></img>:null}
-                    <div>您正在查看<p style={{fontWeight:"bold",display:"inline"}}>{name? name:"有关"+"\""+value+"\""}</p>的技能
+                    <div>您正在查看<p style={{fontWeight:"bold",display:"inline",color:"rgb(51,51,51)",fontSize:18}}>{name? name:"有关"+"\""+value+"\""}</p>的技能
                     </div>
                     <div style={{display:"flex", flexWrap:"wrap"}}>
                         {resultList.map((item) => (

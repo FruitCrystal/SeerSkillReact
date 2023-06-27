@@ -9,7 +9,7 @@ function Effect(){
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        axios.get(`http://localhost:8080/effect/getEffect`).then((res)=>{
+        axios.get(`/effect/getEffect`).then((res)=>{
             setEffectList(res.data);
             setLoading(false)
             console.log(res.data)

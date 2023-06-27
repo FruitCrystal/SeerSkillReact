@@ -11,7 +11,7 @@ function Detail(props) {
 	console.log(props.information); //传进来的id
 	const [collection, setCollection] = useState([]);
 	const [isCollected, setCollected] = useState(false);
-	let url = `http://localhost:8080/searchByID?id=${props.information}`; //根据传来的ID组织url
+	let url = `/searchByID?id=${props.information}`; //根据传来的ID组织url
 	useEffect(
 		() => {
 			fetch(url).then(res => res.json()).then(resp => {
@@ -24,7 +24,7 @@ function Detail(props) {
 	useEffect(
 		() => {
 			axios
-				.get(`http://localhost:8080/collection/get`)
+				.get(`/collection/get`)
 				.then(res => {
 					console.log(res.data);
 					setCollection(res.data);
@@ -44,9 +44,9 @@ function Detail(props) {
 					onClick={e => {
 						setCollected(p => !p); //切换样式
 						if (!isCollected) {
-							fetch(`http://localhost:8080/collection/add?id=${props.information}`);
+							fetch(`/collection/add?id=${props.information}`);
 						} else {
-							fetch(`http://localhost:8080/collection/delete?id=${props.information}`);
+							fetch(`/collection/delete?id=${props.information}`);
 						}
 					}}
 				>

@@ -23,7 +23,7 @@ function SearchByType(props) {
 	useEffect(
 		() => {
 			if (nowtype && order) {
-				setUrl(`http://localhost:8080/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
+				setUrl(`/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
 			}
 		},
 		[nowtype, order, isAsc, offset]
@@ -37,7 +37,7 @@ function SearchByType(props) {
 				setList(resp);
 				setLoading(true);
 			});
-			fetch(`http://localhost:8080/getSumOfType?type=${nowtype}`).then(res => res.json()).then(resp => {
+			fetch(`/getSumOfType?type=${nowtype}`).then(res => res.json()).then(resp => {
 				setSum(resp.sum);
 				// console.log("属性:"+nowtype+"数量:"+ resp.sum)
 				setLoading(true);
@@ -103,7 +103,7 @@ function SearchByType(props) {
 							value={page}
 							onChange={e => {
 								if (nowtype && order) {
-									setUrl(`http://localhost:8080/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
+									setUrl(`/searchByType?type=${nowtype}&orderBy=${order}&isAsc=${isAsc}&offset=${offset}`);
 									setPage(e);
 									setOffset((e - 1) * 42);
 									console.log('page:' + e);

@@ -13,7 +13,7 @@ function TypePanel(props) {
 	const [isAsc, setIsAsc] = useState(false);
 	const [value, setValue] = useState('');
 	useEffect(() => {
-		axios.get('http://localhost:8080/getAllType').then(res => {
+		axios.get('/getAllType').then(res => {
 			setTypes(res.data);
 			console.log(res.data);
 			SetLoading(true);
@@ -93,10 +93,7 @@ function TypePanel(props) {
 											to={`/searchByType`}
 										>
 											{/* <img style={{ width: "4%", height: "6%" }} src={require(`../static/${e.type.replace("·", "")}.webp`)} /> */}
-											<img
-												style={{ width: '4%', height: '6%' }}
-												src={`http://localhost:8080/img/${e.type.replace('·', '')}.webp`}
-											/>
+											<img style={{ width: '4%', height: '6%' }} src={`/img/${e.type.replace('·', '')}.webp`} />
 										</Link>
 									);
 								} else if (value && e.type.includes(value) && props.allowJump) {

@@ -10,7 +10,7 @@ function RandomSearch() {
 		() => {
 			console.log('effect执行!' + update);
 			axios
-				.get('http://localhost:8080/searchRandomly')
+				.get('/searchRandomly')
 				.then(res => {
 					console.log(res.data);
 					setList(res.data);

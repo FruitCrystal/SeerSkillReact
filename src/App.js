@@ -24,6 +24,9 @@ function App() {
 	return (
 		<HashRouter>
 			<div id="main">
+				<div className="author">
+					<p>作者：Cheng_Orange</p>
+				</div>
 				<div className="Sidebar">
 					<ul
 						onClick={e => {

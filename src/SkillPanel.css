@@ -38,6 +38,7 @@
 }
 
 .desc {
+    
     position: absolute;
     overflow: hidden;
     z-index: 100;
@@ -57,6 +58,7 @@
 }
 
 .panel:hover > .desc {
+    padding: 8px 2px 0px 2px;
     border: #666a6bd5 solid 2px;
     height: auto;
     /* opacity: 1; */

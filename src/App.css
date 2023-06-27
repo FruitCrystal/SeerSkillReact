@@ -3,6 +3,14 @@
     flex-wrap: wrap;
     text-align: center;
 }
+
+        @font-face{
+            font-family: Rajdhani;
+            src: url("./static//font/hkxzy.ttf");
+        }
+        *{
+            font-family: 'Rajdhani';
+        }
 * {
     margin: 0;
     padding: 0;
@@ -43,4 +51,10 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.author{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 23px;
 }
