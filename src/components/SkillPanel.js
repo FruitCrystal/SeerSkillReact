@@ -50,7 +50,7 @@ function SkillPanel(props) {
 					console.log(rect);
 					if (overflowY > 0) {
 						console.log('越界！');
-						des.style.top = `${0 - overflowY - 95}px`;
+						des.style.top = `${0 - overflowY}px`;
 					}
 				}}
 			>
